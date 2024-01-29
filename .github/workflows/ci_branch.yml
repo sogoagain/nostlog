@@ -1,0 +1,46 @@
+name: CI - Branch
+
+on:
+  push:
+    branches-ignore: ["main"]
+
+concurrency:
+  group: "build-branch-${{ github.ref }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  check-pr:
+    runs-on: ubuntu-latest
+    outputs:
+      exists_pr: ${{ steps.pr.outputs.exists }}
+    steps:
+      - name: Check PR
+        id: pr
+        uses: sogoagain/check-opened-pr-action@v0.1
+  build:
+    needs: check-pr
+    if: needs.check-pr.outputs.exists_pr == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm ci
+      - name: Check lint
+        run: npm run lint
+      - name: Run Unit tests
+        run: npm run test:coverage
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npm run test:e2e
+      - name: Build
+        run: npm run build

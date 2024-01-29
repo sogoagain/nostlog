@@ -1,0 +1,15 @@
+{
+  "IndexLayout": {
+    "title": "노스트로그",
+    "description": "노스트로그: 과거로부터 미래로 떠나는 여정"
+  },
+  "IndexPage": {
+    "greetings": "노스트로그에 오신 것을 환영합니다",
+    "warning": "🚧 **개발 중**: 이 프로젝트는 현재 개발 중으로 계속해서 많은 변화가 있을 예정입니다.",
+    "bearCount": "곰",
+    "fishCount": "물고기",
+    "addBearButton": "곰 추가하기",
+    "addFishButton": "물고기 추가하기",
+    "eatFishButton": "물고기 사냥하기"
+  }
+}

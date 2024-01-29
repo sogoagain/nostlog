@@ -1,0 +1,15 @@
+{
+  "IndexLayout": {
+    "title": "Nostlog",
+    "description": "Nostlog: A Journey to the Future through the Lens of the Past"
+  },
+  "IndexPage": {
+    "greetings": "Welcome Nostlog",
+    "warning": "🚧 **In Development**: This project is in its early stages and will undergo significant changes.",
+    "bearCount": "Number of bears",
+    "fishCount": "Number of fishes",
+    "addBearButton": "Add a bear",
+    "addFishButton": "Add a fish",
+    "eatFishButton": "Eat a fish"
+  }
+}
